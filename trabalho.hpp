@@ -32,6 +32,8 @@ int matTerminoAtendimento[MAX_BERCOS][MAX_NAVIOS];
 
 int vetTerminoAtendimento[MAX_BERCOS]; //do ultimo navio
 
+//int bercoGlobal; //usado na heuristica construtiva aleatória.
+
 //functions
 void lerDados(std::string arq);
 
@@ -44,11 +46,11 @@ void calcFO(Solucao &s);
 //heuristica
 void heuConGul(Solucao &s);
 
-void escreverSol(const Solucao &s, char *arq); //imprime na tela e no arquivo a solucao.
+void escreverSol(Solucao &s, char *arq); //imprime na tela e no arquivo a solucao.
 
 void ordenarPosicaoMenorTempoChegada(int vetTempChegadaOrd[MAX_NAVIOS], int qtd);
 
-int totalViolacoesNavios();
+int totalViolacoesNavios(Solucao &s);
 
 int totalViolacoesBercos();
 
@@ -62,10 +64,6 @@ void gerar_vizinha_1(Solucao &s);
 void gerar_vizinha_2(Solucao &s);
 
 void gerar_vizinha_3(Solucao &s);
-
-void shiftMenosUm(int berco[MAX_BERCOS], int inicio, int qtd);
-
-bool estaNoBerco(int berco[MAX_NAVIOS], int navio, int qtd);
 
 void ordemAtendimento(Solucao &s);
 
